@@ -1,0 +1,19 @@
+.admin__featured-ads-form {
+  &__subtitle {
+    margin: 30px 0;
+    font-size: 18px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__submit-btn {
+    margin-left: auto;
+    margin-top: 10px;
+  }
+
+  &__chip {
+    margin-bottom: 35px;
+  }
+}

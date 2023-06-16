@@ -1,0 +1,13 @@
+.app-input-money {
+  &__currency {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1em;
+  }
+
+  .app-input--large {
+    .app-input-money__currency {
+      font-size: 2em;
+    }
+  }
+}

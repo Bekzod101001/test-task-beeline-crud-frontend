@@ -1,0 +1,148 @@
+@keyframes shine {
+  0% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
+}
+
+.btn {
+  position: relative;
+  width: fit-content;
+  padding: 0 20px;
+  border-radius: 50px;
+  min-height: 35px;
+  @include flexCenter();
+  font-size: 1em;
+  transition: background-color .3s, border-color .3s;
+  cursor: pointer;
+  font-weight: bold;
+
+  &__text {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    transition: all $transition-speed-default;
+    color: transparent;
+    background: linear-gradient(90deg, #fff 33%, rgba(255, 255, 255, 0.1) 50%, #fff 66%) transparent;
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+  }
+  &--size {
+    &-large {
+      font-size: 1.2em;
+      min-height: 50px;
+      padding: 0 30px;
+    }
+  }
+  &--bg {
+    &.btn--green {
+      background-color: $green;
+
+      &:not(:disabled):hover {
+        background-color: $green--hover;
+      }
+
+      &:not(:disabled):active {
+        background-color: $green--active;
+      }
+    }
+
+    &.btn--orange {
+      background-color: $orange;
+
+      &:not(:disabled):hover {
+        background-color: $orange--light;
+      }
+
+      &:not(:disabled):active {
+        background-color: $orange--active;
+      }
+    }
+
+    &.btn--red {
+      background-color: $tomato;
+
+      &:not(:disabled):hover {
+        background-color: $tomato--hover;
+      }
+
+      &:not(:disabled):active {
+        background-color: rgba($tomato, .5);
+      }
+    }
+
+    &[disabled] {
+      opacity: 0.5;
+    }
+  }
+
+  &--outlined {
+    background-color: transparent;
+
+    &.btn--placeholder {
+      &:not(:disabled):hover {
+        background-color: #eee;
+      }
+
+      &:not(:disabled):active {
+        background-color: #ccc;
+      }
+    }
+
+    &.btn--green {
+      border: 1px solid $green;
+
+      .btn__text {
+        background: linear-gradient(90deg, $green 33%, rgba(255, 255, 255, 0.1) 50%, $green 66%) transparent;
+        background-size: 300% 100%;
+        -webkit-background-clip: text;
+      }
+
+      &:hover {
+        border-color: $green--hover;
+      }
+
+      &:active {
+        border-color: $green--active;
+      }
+    }
+
+    &.btn--orange {
+      border: 1px solid $orange;
+
+      .btn__text {
+        background: linear-gradient(90deg, $orange 33%, rgba(255, 255, 255, 0.1) 50%, $orange 66%) transparent;
+        background-size: 300% 100%;
+        -webkit-background-clip: text;
+      }
+
+      &:hover {
+        border-color: $orange--light;
+        .btn__text {
+          color: $orange--light;
+        }
+      }
+
+      &:active {
+        border-color: $orange--active;
+        .btn__text {
+          color: $orange--active;
+        }
+      }
+    }
+  }
+
+  &--loading {
+    pointer-events: none;
+
+    .btn__text {
+      animation: shine 2s infinite;
+    }
+  }
+
+  &--icon {
+    padding: 0;
+  }
+}

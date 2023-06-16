@@ -1,0 +1,84 @@
+@import "reset";
+@import "base";
+@import "utils";
+
+@import "partials/mixins";
+@import "partials/vars";
+
+
+:root {
+  --icon-color: #{$black};
+}
+#app {
+  padding: 60px 0;
+}
+
+.c {
+  &-table {
+    width: 100%;
+    border-spacing: 0;
+
+    td,
+    th {
+      font-size: 13px;
+      padding: 4px 8px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    th {
+      border-color: $green;
+    }
+
+    tr:last-child {
+      td,
+      th {
+        border-bottom: unset;
+      }
+    }
+  }
+
+  &-error-text {
+    color: $red;
+    margin-top: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    display: block;
+    width: 100%;
+  }
+
+  &-divider {
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: #eee;
+  }
+
+  &-card {
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 20px;
+  }
+}
+
+.products {
+  &__table {
+    &__btn {
+      font-size: 14px;
+      width: 150px;
+      height: 40px;
+    }
+  }
+}
+
+.filter-block {
+  padding: 40px 20px;
+  background-color: #eee;
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  &__item {
+    padding: 15px;
+    width: 33.33333%;
+  }
+}

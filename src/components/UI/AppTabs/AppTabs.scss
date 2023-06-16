@@ -1,0 +1,59 @@
+.tabs {
+  &-item {
+    padding-top: 30px;
+  }
+
+  &-nav {
+    &__wrapper {
+      max-width: 100%;
+      width: fit-content;
+      display: flex;
+      position: relative;
+      border: 3px solid #e5e5e5;
+      border-radius: 50px;
+      padding: 5px;
+      overflow-x: auto;
+
+    }
+
+    &--center {
+      margin: 0 auto;
+    }
+
+    &__active-mark {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      background-color: $green;
+      transition: left $transition-speed-long, width $transition-speed-long;
+      border-radius: 50px;
+    }
+
+    &-item {
+      height: 35px;
+      //min-width: 180px;
+      width: fit-content;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      padding: 0 15px;
+      font-weight: 600;
+      font-size: 12px;
+      position: relative;
+      color: $gray-darker;
+      cursor: pointer;
+      transition: color $transition-speed-long;
+      white-space: nowrap;
+
+      &:hover {
+        color: $black;
+      }
+      &--active {
+        color: #fff !important;
+        transition-delay: .1s;
+      }
+
+    }
+  }
+}

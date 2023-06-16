@@ -1,0 +1,32 @@
+.app-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 15px;
+  transform: translateX(-50%);
+  width: fit-content;
+  height: fit-content;
+  z-index: 600;
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    min-width: 200px;
+    padding: 20px 30px;
+    border-radius: 5px;
+    margin: 5px;
+    color: #fff;
+    font-size: 1.2em;
+    text-align: center;
+
+    &--success {
+      background-color: $green;
+    }
+
+    &--error {
+      background-color: $red;
+    }
+  }
+}

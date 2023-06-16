@@ -1,0 +1,66 @@
+$positions: ("l": "left", "r": "right", "t": "top", "b": "bottom");
+$multiplier: 8;
+.u {
+  &-white-space-nowrap {
+    white-space: nowrap;
+  }
+  &-w {
+    &-100 {
+      width: 100%;
+    }
+  }
+
+  &-color {
+    &-green {
+      color: $green;
+    }
+  }
+
+  &-underlined {
+    text-decoration: underline;
+  }
+
+  &-bold {
+    font-weight: bold;
+  }
+
+  &-mx {
+    &-auto {
+      margin: 0 auto;
+    }
+  }
+
+  @each $key, $position in $positions {
+    &-m#{$key}-auto {
+      margin-#{$position}: auto;
+    }
+  }
+  @each $size in 1, 2, 3, 4, 5, 6, 7, 8 {
+    @each $key, $position in $positions {
+      &-p#{$key}-#{$size} {
+        padding-#{$position}: #{$size * $multiplier}px!important;
+      }
+      &-m#{$key}-#{$size} {
+        margin-#{$position}: #{$size * $multiplier}px!important;
+      }
+    }
+
+    &-ma-#{$size} {
+      margin: #{$size * 8}px
+    }
+
+    &-pa-#{$size} {
+      padding: #{$size * 8}px
+    }
+
+  }
+
+
+  &-d {
+    &-flex {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+}

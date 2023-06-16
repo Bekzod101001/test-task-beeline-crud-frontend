@@ -1,0 +1,97 @@
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.chip {
+  display: flex;
+  width: fit-content;
+  padding: 20px 30px;
+  color: $dark-blue;
+  font-weight: 700;
+  font-size: 1.35em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border: 3px solid #000;
+  border-radius: 100px;
+  margin-top: -3px;
+  background-color: #fff;
+  transition: all .3s;
+  cursor: pointer;
+  position: relative;
+
+  &__close-btn {
+    display: flex;
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    transition: transform .3s;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      --current-color: #000;
+    }
+
+    &:hover {
+      transform: rotate(180deg);
+    }
+  }
+
+  &--link {
+    cursor: pointer;
+
+    &:hover {
+      .chip__bg-color {
+        filter: brightness(.9);
+      }
+    }
+
+    &:active .chip__bg-color {
+      filter: brightness(.8);
+    }
+  }
+
+  &--active {
+    color: #fff;
+    background-color: $green;
+    border-color: $green;
+    z-index: 1;
+  }
+
+  &:not(&--readonly):hover {
+    color: #fff;
+    background-color: $green;
+    border-color: $green;
+    z-index: 5;
+  }
+
+  &--readonly {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &--small {
+    padding: 7px 10px;
+    font-size: 1em;
+  }
+
+  @include max-md {
+    padding: 10px 15px;
+    font-size: 1.1em;
+  }
+
+  @include max-sm {
+    padding: 7px 10px;
+    font-size: 1em;
+  }
+
+  @include max-xs {
+    padding: 6px 8px;
+    text-transform: initial;
+    font-size: .85em;
+    font-weight: 500;
+    margin-top: -1px;
+    border: 1px solid #000;
+  }
+}

@@ -1,0 +1,237 @@
+.app-select {
+  position: relative;
+  display: flex;
+  min-width: 100px;
+
+  &__header {
+    display: inline-flex;
+    align-items: center;
+    height: 40px;
+    flex-grow: 1;
+    transition: all .4s;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    width: 100%;
+    position: relative;
+    border-bottom: 3px solid #DBDBDB;
+
+    &-active {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  &__icon {
+    width: 20px;
+    display: flex;
+    margin-right: 5px;
+
+    svg {
+      width: 20px;
+      max-height: 20px;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    left: 0;
+    top: -15px;
+    font-size: 1rem;
+    color: #151717;
+    font-size-adjust: unset;
+  }
+
+  &__wrap {
+    font-size: 1.1rem;
+    line-height: 18px;
+    color: #151717;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-grow: 4;
+    .chip {
+      padding: 7px 10px;
+    }
+
+    &__text {
+      //padding: 10px 10px 0 0;
+    }
+  }
+
+  &__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: 5px;
+    width: 20px;
+
+    svg {
+      transform: rotate(180deg);
+      transition: transform .3s;
+      --current-color: #191B1D;
+    }
+  }
+
+  &__clear {
+    display: flex;
+    position: absolute;
+    right: 30px;
+    bottom: 0;
+    transform: translateY(-50%);
+    z-index: 5;
+    svg {
+      width: 12px;
+      max-height: 20px;
+      --current-color: #{#000};
+    }
+
+    &:hover {
+      svg {
+        path {
+          stroke: rebeccapurple;
+        }
+      }
+    }
+  }
+
+  &__options {
+    position: absolute;
+    left: 0;
+    top: calc(100% - 1px);
+    min-width: 100%;
+    border-top: 1px solid #DDDFDF;
+    background-color: #fff;
+    overflow-y: auto;
+    max-height: 200px;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(0, -10px);
+    transition: .3s all;
+    z-index: 6;
+    @include scrollbar;
+    visibility: hidden;
+    box-shadow: 0px 30.0352px 30.0352px rgba(0, 0, 0, 0.15);
+
+  }
+
+  &__option {
+    width: 100%;
+    text-align: left;
+    padding: 10px 12px;
+    font-size: .95em;
+    user-select: none;
+    transition: .3s background-color;
+
+    &--header {
+      pointer-events: none;
+      font-weight: bold;
+      color: gray;
+    }
+
+    &--no-selectable {
+      pointer-events: none;
+    }
+
+    &:hover:not(.app-select__option--no-selectable, .app-select__option--selected) {
+      background: #eaecec;
+      cursor: pointer;
+    }
+
+    &--selected {
+      color: #00CC69;
+    }
+  }
+
+  &--active {
+    .app-select {
+      &__header {
+        border-bottom-right-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+      }
+
+      &__arrow {
+        svg {
+          transform: rotate(0deg);
+        }
+      }
+
+      &__options {
+        visibility: visible;
+        opacity: 1;
+        transform: unset;
+        pointer-events: all;
+      }
+    }
+  }
+
+  &--outlined {
+    .app-select {
+      &__header {
+        background-color: transparent;
+        border: 1px solid #DBDBDB;
+      }
+
+      &__options {
+        border: 1px solid #DBDBDB;
+      }
+    }
+  }
+
+  &--line {
+    .app-select {
+      &__header {
+        background-color: lightgray;
+      }
+
+      &__options {
+        background-color: lightgray;
+      }
+    }
+  }
+
+  &--invalid {
+    .app-select {
+      &__header {
+        border-color: red;
+      }
+    }
+  }
+
+  &--autocomplete {
+    .app-select {
+      &__header {
+        cursor: text;
+      }
+    }
+  }
+
+  &__search-input {
+    border: none;
+    max-width: 100%;
+    font-size: 1.1rem;
+  }
+
+  &.transfer__select {
+    display: none;
+    @include max-sm {
+        display: block;
+        margin-bottom: 20px;
+    }
+}
+}
+
+@include max-xs {
+  .app-select {
+    span {
+      width: 100%;
+    }
+  }
+}

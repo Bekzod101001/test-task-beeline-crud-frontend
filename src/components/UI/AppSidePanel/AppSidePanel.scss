@@ -1,0 +1,148 @@
+.side-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+  transition: .3s transform;
+
+  &-enter-from, &-leave-to {
+
+    .side-panel__window {
+      transform: translateX(100%);
+    }
+  }
+
+  &-enter-active, &-leave-active {
+    .side-panel__window {
+      transition: transform .3s;
+    }
+  }
+
+  &__header {
+    justify-content: center;
+    padding-top: 100px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.5;
+    position: relative;
+
+    &__linear {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    @include max-sm {
+      padding-top: 40px;
+    }
+  }
+
+  &__title {
+    font-size: 1.78em;
+    font-weight: 700;
+  }
+
+  &__overlay {
+    background-color: rgba(0, 0, 0, .5);
+    position: absolute;
+    @include full-sized;
+  }
+
+  &__wrapper {
+    @include flexCenter;
+    justify-content: flex-end;
+    height: 100%;
+  }
+
+  &__window {
+    width: 600px;
+    max-width: 100%;
+    overflow-y: auto;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform .3s;
+    padding-bottom: 30px;
+    max-height: unset;
+    height: 100%;
+    border-radius: 0;
+    @include scrollbar;
+  }
+
+  &__body {
+    padding: 0 30px 30px;
+    &--no-padding {
+      padding-bottom: 0;
+    }
+
+    &__info-icon {
+      margin-right: 5px;
+    }
+    @include max-sm {
+      padding: 0 15px;
+    }
+  }
+
+  &__buttons {
+    padding: 0 30px;
+    display: flex;
+  }
+
+  &__close {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    width: 24px;
+    height: 24px;
+
+    svg {
+      transition: transform .3s;
+      --current-color: #000;
+    }
+
+    &:hover {
+      svg {
+        transform: rotate(90deg);
+      }
+    }
+
+    @include max-sm {
+      top: 15px;
+      right: 15px;
+    }
+  }
+
+  &__title {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    color: $black;
+  }
+
+  &__subtitle {
+    color: $black;
+    margin-top: 15px;
+  }
+
+  &__btn {
+    width: 100%;
+    border-radius: 4px;
+    padding: 13px 15px;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

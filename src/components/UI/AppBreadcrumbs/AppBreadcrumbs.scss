@@ -1,0 +1,18 @@
+.app-breadcrumbs {
+  display: flex;
+  align-items: center;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 15px;
+    color: #000;
+    opacity: .5;
+
+    &__arrow {
+      margin: 0 7px;
+      font-size: 12px;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.app-section-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+  &__heading {
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #000;
+  }
+  &__btns {
+    margin-left: auto;
+    display: flex;
+    .app-btn {
+      margin-left: 12px;
+    }
+  }
+}
