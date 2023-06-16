@@ -5,6 +5,7 @@ How to install:
 1) yarn / npm install
 2) yarn dev / npm run dev
 
+NOTE: it's bad to include .env files in repository, dit it just because of testing purposes
 
 
 ______________________
